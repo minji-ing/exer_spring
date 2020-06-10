@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.dataroom">
+	<resultMap id="dataroomResult" type="dataroomVO">
+		<result property="level" column="level" />
+		<result property="bno" column="bno" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="id" column="id" />
+		<result property="regdate" column="regdate" />
+		<!-- <result property="imageFileName" column="imageFileName" />-->
+	</resultMap>
+<!-- 
+	<resultMap id="imgResult" type="imageVO">
+		<result property="imageFileNO" column="imageFileNO" />
+		<result property="articleNO" column="articleNO" />
+		<result property="imageFileName" column="imageFileName" />
+	</resultMap> -->
+	
+	<!-- 게시판 글 작성 -->
+	<insert id="insert">
+		INSERT INTO b_dataroom(bno, title, content, writer)
+			VALUES(b_dataroom_seq.NEXTVAL, #{title}, #{content},
+			#{writer})
+	</insert>
+	
+<!-- 
+	<select id="selectClassArticlesList" resultType="articleVO" parameterType="criteria">
+    <![CDATA[
+      SELECT articleNO, title, spaceReview, contentReview, writeDate, id
+      from 
+      	(select articleNO, title, spaceReview, contentReview, WriteDate, id,
+      	row_number() over(order by articleNO desc) as rnum
+      	from b_review) mp
+      where rnum between '1' and '11'
+      ORDER BY articleNO DESC
+    ]]>
+	</select>
+	
+	<select id="listCount" resultType="int" parameterType="searchCriteria">
+		 SELECT COUNT(articleNO)
+		 FROM b_review
+		 WHERE 1=1
+		 <include refid="search"></include>
+		 AND articleNO > 0
+	</select>
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">AND TITLE LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'c'.toString()">AND CONTENT LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'w'.toString()">AND ID LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'tc'.toString()">AND (TITLE LIKE '%' || #{keyword} || '%')
+				or (CONTENT LIKE '%' || #{keyword} || '%')</if>
+		</if>
+	</sql>
+
+	<select id="selectClassArticlesList" resultType="articleVO" parameterType="searchCriteria">
+		SELECT articleNO, title, spaceReview, contentReview, id, writeDate
+		FROM (
+				SELECT articleNO, title, spaceReview, contentReview, id, writeDate,
+				row_number() over(order by articleNO desc) as rnum
+				FROM b_review
+				WHERE 1=1
+				<include refid="search"></include>
+				) mp
+		WHERE rnum between '1' and '10'
+		order by articleNO desc
+	</select>-->
+	
+	<!--단일이미지 추가 -->
+<!-- 
+	<insert id="insertNewArticle" parameterType="java.util.Map">
+	<![CDATA[
+		INSERT into b_review(contentGubun, articleNO, title, spaceReview, contentReview, id)
+		VALUES(#{contentGubun},#{articleNO},#{title},#{spaceReview},#{contentReview},#{id})
+	]]>
+	</insert> -->
+	
+	<!-- DB의 시퀀스 역할 -->
+<!-- 	
+	<select id="selectClassNewArticleNO" resultType="int">
+	<![CDATA[
+		SELECT  sq_review_class.nextval from dual
+	]]>
+	</select>
+
+	<select id="selectClassArticle" resultType="articleVO"
+		parameterType="int">
+    <![CDATA[
+      SELECT * from b_review
+      where contentGubun = '수강 후기'
+      and articleNO = #{articleNO}
+    ]]>
+	</select>
+
+	<update id="updateArticle" parameterType="java.util.Map">
+		update b_review
+		set title=#{title},
+		content=#{content}
+		<if test="imageFileName!='' and imageFileName!=null">
+			, imageFileName=#{imageFileName}
+		</if>
+		where articleNO=#{articleNO}
+	</update>
+
+	<delete id="deleteArticle" parameterType="int">
+    <![CDATA[
+      delete from b_review
+      where articleNO = #{articleNO}
+    ]]>
+	</delete> -->
+
+	<!--다중 이미지 추가 SQL문 -->
+	<!-- <insert id="insertNewArticle" parameterType="java.util.Map"> <![CDATA[ 
+		insert into t_board(articleNO, id, title, content, imageFileName) values(#{articleNO}, 
+		#{id}, #{title}, #{content}, null) ]]> </insert> <insert id="insertNewImage" 
+		parameterType="java.util.Map"> <foreach item="item" collection="list" open="INSERT 
+		ALL" separator=" " close="SELECT * FROM DUAL" > INTO t_imageFile(imageFileNO, 
+		imageFileName, articleNO, regDate) VALUES (#{item.imageFileNO}, #{item.imageFileName}, 
+		#{item.articleNO}, sysdate) </foreach> </insert> -->
+<!--
+	<select id="selectNewImageFileNO" resultType="int">
+    <![CDATA[
+      SELECT  nvl(max(imageFileNO),0) from t_imageFile
+    ]]>
+	</select>
+
+
+	<select id="selectImageFileList" resultMap="imgResult"
+		parameterType="int">
+    <![CDATA[
+      SELECT * from t_imageFile
+      where articleNO=#{articleNO}
+    ]]>
+	</select> -->
+
+</mapper>

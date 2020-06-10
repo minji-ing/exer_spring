@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration 	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<!-- <typeAlias type="com.myproject.community.member.vo.MemberVO"  alias="memberVO" /> -->
+		<typeAlias type="com.myproject.community.dataroom.vo.DataroomVO"  alias="dataroomVO" />
+		<!-- <typeAlias type="com.myproject.firstProject.review.vo.ImageVO"  alias="imageVO" />
+		<typeAlias type="com.myproject.firstProject.review.vo.Criteria"  alias="criteria" />
+		<typeAlias type="com.myproject.firstProject.review.vo.SearchCriteria"  alias="searchCriteria" />
+		<typeAlias type="com.myproject.firstProject.review.vo.ReplyVO"  alias="replyVO" />-->
+	</typeAliases>
+</configuration>
