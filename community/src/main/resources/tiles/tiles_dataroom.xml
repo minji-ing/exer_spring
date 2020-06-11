@@ -3,7 +3,7 @@
 "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
 "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-	<!-- 이미 member에서 layout과 main은 정의 했기 때문에 삭제
+	<!-- 이미 member에서 layout과 main은 정의 했기 때문에 삭제 -->
    <definition name="baseLayout"  template="/WEB-INF/views/common/layout.jsp">
       <put-attribute name="title" value="" />
       <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
@@ -15,21 +15,21 @@
    <definition name="main" extends="baseLayout">
       <put-attribute name="title" value="메인페이지" />
       <put-attribute name="body" value="/WEB-INF/views/main.jsp" />
-   </definition> -->
-   
+   </definition> 
+   <!-- 
    <definition name="/dataroom/listArticles" extends="baseLayout">
       <put-attribute name="title" value="글목록창" />
       <put-attribute name="body" value="/WEB-INF/views/dataroom/listArticles.jsp" />
-   </definition>
+   </definition> -->
        
    <definition name="/dataroom/writeView" extends="baseLayout">
       <put-attribute name="title" value="글쓰기창" />
       <put-attribute name="body" value="/WEB-INF/views/dataroom/writeView.jsp" />
    </definition>
-   
-   <definition name="/dataroom/viewArticle" extends="baseLayout">
+    
+   <definition name="/dataroom/write" extends="baseLayout">
       <put-attribute name="title" value="글보기창" />
-      <put-attribute name="body" value="/WEB-INF/views/dataroom/viewArticle.jsp" />
+      <put-attribute name="body" value="/WEB-INF/views/dataroom/write.jsp" />
    </definition>
       
 <!-- 

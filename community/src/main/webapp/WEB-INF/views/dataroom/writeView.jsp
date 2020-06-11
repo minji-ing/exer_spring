@@ -7,7 +7,7 @@
 	<title>자료실</title>
 </head>
 <body>
-	<form role="form" method="post" action="/dataroom/write">
+	<form role="form" method="post" action="/communitiy/dataroom/write">
 		<table>
 			<tbody>
 				<tr>

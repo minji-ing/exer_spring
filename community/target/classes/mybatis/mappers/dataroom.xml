@@ -22,9 +22,8 @@
 	
 	<!-- 게시판 글 작성 -->
 	<insert id="insert">
-		INSERT INTO b_dataroom(bno, title, content, writer)
-			VALUES(b_dataroom_seq.NEXTVAL, #{title}, #{content},
-			#{writer})
+		INSERT INTO b_dataroom(bno,title,content,id)
+			VALUES(b_dataroom_seq.NEXTVAL,#{title},#{content},#{id})
 	</insert>
 	
 <!-- 

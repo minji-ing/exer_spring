@@ -16,6 +16,6 @@ public class DataroomDAOImpl implements DataroomDAO {
 	// 게시글 작성
 	@Override
 	public void write(DataroomVO dataroomVO) throws Exception {
-		sqlSession.insert("dataroom", dataroomVO);
+		sqlSession.insert("mapper.dataroom.insert", dataroomVO);
 	}
 }

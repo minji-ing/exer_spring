@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.myproject.community.dataroom.service.DataroomService;
 import com.myproject.community.dataroom.vo.DataroomVO;
 
-@Controller
-@RequestMapping("/dataroom/*")
+@Controller("dataroomController")
 public class DataroomControllerImpl implements DataroomController {
 	static final Logger logger = LoggerFactory.getLogger(DataroomControllerImpl.class);
 	
@@ -19,18 +18,19 @@ public class DataroomControllerImpl implements DataroomController {
 	DataroomService dataroomService;
 	
 	// 게시판 글 작성 화면
-	@RequestMapping(value = "/dataroom/writeView", method = RequestMethod.GET)
-	public void writeView() throws Exception{
+	@RequestMapping(value="/dataroom/writeView", method=RequestMethod.GET)
+	public String writeView() throws Exception{
 		logger.info("writeView");
+		return "/dataroom/writeView";
 	}
 	
 	// 게시판 글 작성
-	@RequestMapping(value = "/dataroom/write", method = RequestMethod.POST)
+	@RequestMapping(value="/dataroom/write", method=RequestMethod.POST)
 	public String write(DataroomVO dataroomVO) throws Exception{
 		logger.info("write");
 		
 		dataroomService.write(dataroomVO);
 		
-		return "redirect:/";
+		return "/community/dataroom/write";
 	}
 }
