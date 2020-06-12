@@ -15,21 +15,21 @@
    <definition name="main" extends="baseLayout">
       <put-attribute name="title" value="메인페이지" />
       <put-attribute name="body" value="/WEB-INF/views/main.jsp" />
-   </definition> 
-   <!-- 
-   <definition name="/dataroom/listArticles" extends="baseLayout">
+   </definition>
+
+   <definition name="/dataroom/list" extends="baseLayout">
       <put-attribute name="title" value="글목록창" />
-      <put-attribute name="body" value="/WEB-INF/views/dataroom/listArticles.jsp" />
-   </definition> -->
+      <put-attribute name="body" value="/WEB-INF/views/dataroom/list.jsp" />
+   </definition>
        
    <definition name="/dataroom/writeView" extends="baseLayout">
       <put-attribute name="title" value="글쓰기창" />
       <put-attribute name="body" value="/WEB-INF/views/dataroom/writeView.jsp" />
    </definition>
-    
-   <definition name="/dataroom/write" extends="baseLayout">
+
+   <definition name="/dataroom/readView" extends="baseLayout">
       <put-attribute name="title" value="글보기창" />
-      <put-attribute name="body" value="/WEB-INF/views/dataroom/write.jsp" />
+      <put-attribute name="body" value="/WEB-INF/views/dataroom/readView.jsp" />
    </definition>
       
 <!-- 

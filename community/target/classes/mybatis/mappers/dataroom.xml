@@ -26,6 +26,19 @@
 			VALUES(b_dataroom_seq.NEXTVAL,#{title},#{content},#{id})
 	</insert>
 	
+	<!-- 게시판 글목록 조회 -->
+	<select id="list" resultType="dataroomVO">
+		SELECT bno, title, id, regdate
+		FROM b_dataroom
+		ORDER BY bno DESC
+	</select>
+	
+	<!-- 게시글 조회 -->
+	<select id="read" parameterType="int" resultType="dataroomVO">
+		SELECT bno, title, content, id, regdate
+		FROM b_dataroom
+		WHERE bno=#{bno}
+	</select>
 <!-- 
 	<select id="selectClassArticlesList" resultType="articleVO" parameterType="criteria">
     <![CDATA[

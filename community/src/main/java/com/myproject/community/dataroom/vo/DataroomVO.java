@@ -6,7 +6,7 @@ public class DataroomVO {
 	private int bno;
 	private String title;
 	private String content;
-	private String writer;
+	private String id;
 	private Date regdate;
 	
 	public int getBno() {
@@ -27,11 +27,11 @@ public class DataroomVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getWriter() {
-		return writer;
+	public String getId() {
+		return id;
 	}
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public Date getRegdate() {
 		return regdate;

@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -31,6 +32,26 @@ public class DataroomControllerImpl implements DataroomController {
 		
 		dataroomService.write(dataroomVO);
 		
-		return "/community/dataroom/write";
+		return "/dataroom/list";
+	}
+	
+	// 게시글 목록 조회
+	@RequestMapping(value="/dataroom/list", method=RequestMethod.GET)
+	public String list(Model model) throws Exception {
+		logger.info("list");
+		
+		model.addAttribute("list", dataroomService.list());
+		
+		return "/dataroom/list";
+	}
+	
+	// 게시글 조회
+	@RequestMapping(value="/dataroom/readView", method=RequestMethod.GET)
+	public String read(DataroomVO dataroomVO, Model model) throws Exception {
+		logger.info("read");
+		
+		model.addAttribute("read", dataroomService.read(dataroomVO.getBno()));
+		
+		return "/dataroom/readView";
 	}
 }

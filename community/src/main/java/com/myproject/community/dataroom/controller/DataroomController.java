@@ -1,8 +1,12 @@
 package com.myproject.community.dataroom.controller;
 
+import org.springframework.ui.Model;
+
 import com.myproject.community.dataroom.vo.DataroomVO;
 
 public interface DataroomController {
 	public String writeView() throws Exception;
 	public String write(DataroomVO dataroomVO) throws Exception;
+	public String list(Model model) throws Exception;
+	public String read(DataroomVO dataroomVO, Model model) throws Exception;
 }
