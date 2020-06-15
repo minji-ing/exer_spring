@@ -32,4 +32,16 @@ public class DataroomDAOImpl implements DataroomDAO {
 	public DataroomVO read(int bno) throws Exception {
 		return sqlSession.selectOne("mapper.dataroom.read", bno);
 	}
+	
+	// 게시글 수정
+	@Override
+	public void update(DataroomVO dataroomVO) throws Exception {
+		sqlSession.update("mapper.dataroom.update", dataroomVO);
+	}
+	
+	// 게시글 삭제
+	@Override
+	public void delete(int bno) throws Exception {
+		sqlSession.delete("mapper.dataroom.delete", bno);
+	}
 }

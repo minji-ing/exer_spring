@@ -27,4 +27,14 @@ public class DataroomServiceImpl implements DataroomService {
 	public DataroomVO read(int bno) throws Exception {
 		return dataroomDAO.read(bno);
 	}
+	
+	// 게시글 수정
+	public void update(DataroomVO dataroomVO) throws Exception {
+		dataroomDAO.update(dataroomVO);
+	}
+	
+	// 게시글 삭제
+	public void delete(int bno) throws Exception {
+		dataroomDAO.delete(bno);
+	}
 }

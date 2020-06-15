@@ -54,4 +54,34 @@ public class DataroomControllerImpl implements DataroomController {
 		
 		return "/dataroom/readView";
 	}
+	
+	// 게시글 수정뷰(추후 삭제 필요?)
+	@RequestMapping(value="/dataroom/updateView", method=RequestMethod.GET)
+	public String updateView(DataroomVO dataroomVO, Model model) throws Exception {
+		logger.info("updateView");
+		
+		model.addAttribute("update", dataroomService.read(dataroomVO.getBno()));
+		
+		return "/dataroom/updateView";
+	}
+	
+	// 게시글 수정
+	@RequestMapping(value="/dataroom/update", method=RequestMethod.POST)
+	public String update(DataroomVO dataroomVO) throws Exception {
+		logger.info("update");
+		
+		dataroomService.update(dataroomVO);
+		
+		return "redirect:/dataroom/list";
+	}
+	
+	// 게시글 삭제
+	@RequestMapping(value="/dataroom/delete", method=RequestMethod.POST)
+	public String delete(DataroomVO dataroomVO) throws Exception {
+		logger.info("delete");
+		
+		dataroomService.delete(dataroomVO.getBno());
+		
+		return "redirect:/dataroom/list";
+	}
 }

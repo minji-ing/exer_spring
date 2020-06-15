@@ -14,4 +14,10 @@ public interface DataroomDAO {
 	
 	// 게시글 조회
 	public DataroomVO read(int bno) throws Exception;
+	
+	// 게시글 수정
+	public void update(DataroomVO dataroomVO) throws Exception;
+	
+	// 게시글 삭제
+	public void delete(int bno) throws Exception;
 }

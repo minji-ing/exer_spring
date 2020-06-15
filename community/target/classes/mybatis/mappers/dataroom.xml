@@ -39,6 +39,20 @@
 		FROM b_dataroom
 		WHERE bno=#{bno}
 	</select>
+	
+	<!-- 게시글 수정 -->
+	<update id="update" parameterType="dataroomVO">
+		UPDATE b_dataroom
+			SET title=#{title}, content=#{content}
+		WHERE bno=#{bno}
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="delete" parameterType="int">
+		DELETE
+		FROM b_dataroom
+		WHERE bno=#{bno}
+	</delete>
 <!-- 
 	<select id="selectClassArticlesList" resultType="articleVO" parameterType="criteria">
     <![CDATA[
