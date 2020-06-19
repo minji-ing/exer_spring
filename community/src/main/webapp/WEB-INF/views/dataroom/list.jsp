@@ -11,7 +11,9 @@
 <title>자료실</title>
 </head>
 <body>
-	<form role="form" method="post" action="${contextPath}/dataroom/write">
+	<form role="form" method="get" action="${contextPath}/dataroom/writeView">
+		<button type="submit" class="write_btn">글쓰기</button>
+	</form>
 		<table>
 			<tr><th>번호</th><th>제목</th><th>작성자</th><th>등록일</th></tr>
 			
@@ -25,8 +27,6 @@
 					<td><fmt:formatDate value="${list.regdate}" pattern="yyyy-MM-dd" /></td>
 				</tr>
 			</c:forEach>
-			
 		</table>
-	</form>
 </body>
 </html>

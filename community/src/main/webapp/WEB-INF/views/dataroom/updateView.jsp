@@ -20,6 +20,7 @@
 </head>
 <body>
 	<form name="updateForm" role="form" method="post" action="${contextPath}/dataroom/update">
+		<input type="hidden" name="h_bno" value="${update.bno}" readonly="readonly" />
 		<table>
 			<tbody>
 				<tr>
@@ -43,13 +44,13 @@
 				<tr>
 					<td>
 					<label for="regdate">작성날짜</label>
-					<fmt:formatDate value="${read.regdate}" pattern="yyyy-MM-dd" />
+					<fmt:formatDate value="${update.regdate}" pattern="yyyy-MM-dd" />
 					</td>
 				</tr>
 				<tr>
 					<td>
 					<label for="content">내용</label>
-					<textarea id="content" name="content" />${read.content}</textarea>
+					<textarea id="content" name="content" />${update.content}</textarea>
 					</td>
 				</tr>
 			</tbody>

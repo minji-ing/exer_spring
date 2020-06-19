@@ -10,15 +10,14 @@
 <title>자료실</title>
 <script src="${contextPath}/resources/JQuery/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
-
-	// 수정
-	function fn_enable(obj){
-		document.getElementById("title").disabled = false;
-		document.getElementById("content").disabled = false;
-	}
 	$(document).ready(function(){
 		var formObj = $("form[name='readForm']");
-		
+		// 수정
+		$(".update_btn").on("click", function(){
+			formObj.attr("action", "${contextPath}/dataroom/updateView");
+			formObj.attr("method", "get");
+			formObj.submit();
+		})
 		
 		// 삭제
 		$(".delete_btn").on("click", function(){
@@ -36,6 +35,8 @@
 </head>
 <body>
 	<form name="readForm" role="form" method="post">
+		<input type="hidden" id="h_bno" name="h_bno" value="${read.bno}" />
+	</form>
 		<table>
 			<tbody>
 				<tr>
@@ -71,10 +72,9 @@
 			</tbody>
 		</table>
 		<div>
-			<input type=button value="수정" onClick="fn_enable(this.form)">
+			<button type="submit" class="update_btn">수정</button>
 			<button type="submit" class="delete_btn">삭제</button>
 			<button type="submit" class="list_btn">목록</button>
 		</div>
-	</form>
 </body>
 </html>

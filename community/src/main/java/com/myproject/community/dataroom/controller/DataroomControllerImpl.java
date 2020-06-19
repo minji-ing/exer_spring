@@ -59,7 +59,7 @@ public class DataroomControllerImpl implements DataroomController {
 	@RequestMapping(value="/dataroom/updateView", method=RequestMethod.GET)
 	public String updateView(DataroomVO dataroomVO, Model model) throws Exception {
 		logger.info("updateView");
-		
+		System.out.println(dataroomVO.getBno());
 		model.addAttribute("update", dataroomService.read(dataroomVO.getBno()));
 		
 		return "/dataroom/updateView";

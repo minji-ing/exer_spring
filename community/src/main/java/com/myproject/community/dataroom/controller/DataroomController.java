@@ -1,6 +1,7 @@
 package com.myproject.community.dataroom.controller;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.myproject.community.dataroom.vo.DataroomVO;
 
